@@ -23,7 +23,7 @@ jobs:
           useConfigFile: true
           configFilePath: ./.github/gitversion.yml
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore src/Simployer.Utilities.Http.Authentication.ClientCredentials.sln
       - name: Build solution
         run: dotnet build src/Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release /p:Version=${{steps.gitversion.outputs.AssemblySemVer}} /p:AssemblyVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:InformationalVersion=${{steps.gitversion.outputs.InformationalVersion}} --no-restore
       - name: Create NuGet package
