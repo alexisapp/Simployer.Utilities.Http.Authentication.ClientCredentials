@@ -10,7 +10,7 @@ Quickstart
 ```csharp
 // Add required services to DI container
 services.AddHttpClientCredentialsAuthentication();
-
+ 
 // Add authority and audiences
 services.ConfigureClientCredentialsAuthority("Auth0", config => {
     config.Authority = new Uri(Configuration["Auth0:Authority"]);
