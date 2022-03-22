@@ -39,3 +39,5 @@ jobs:
       #  run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
       - name: Build documentation
         uses: nikeee/docfx-action@master
+        with:
+          args: docs/docfx.json
