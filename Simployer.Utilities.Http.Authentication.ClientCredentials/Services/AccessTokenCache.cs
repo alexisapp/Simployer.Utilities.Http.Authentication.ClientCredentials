@@ -10,16 +10,16 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
     /// <summary>
     /// Access token cache, that is thread-safe and supporting both sync and async retrieval of access tokens
     /// </summary>
+    /// <seealso cref="IAccessTokenCache"/>
     public class AccessTokenCache : IAccessTokenCache
     {
         private readonly Dictionary<AudienceRef, CachedAccessToken> cache = new Dictionary<AudienceRef, CachedAccessToken>();
         private readonly SemaphoreSlim semaphore = new SemaphoreSlim(1);
 
-        public string GetAccessToken(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, Func<ClientCredentialsAudienceConfiguration, ClientCredentialsAuthorityConfiguration, CancellationToken, CachedAccessToken> addFunc)
+        /// <inheritdoc/>
+        public string GetOrAddAccessToken(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, Func<ClientCredentialsAudienceConfiguration, ClientCredentialsAuthorityConfiguration, CancellationToken, CachedAccessToken> addFunc)
         {
             var key = new AudienceRef { Audience = audience.Audience, Authority = authority.Authority.ToString() };
-
-
 
             var value = cache.ContainsKey(key) ? cache[key] : null;
             if (value == null || value.Expired)
@@ -47,7 +47,8 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
             return value.AccessToken;
         }
 
-        public async Task<string> GetAccessTokenAsync(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, Func<ClientCredentialsAudienceConfiguration, ClientCredentialsAuthorityConfiguration, CancellationToken, Task<CachedAccessToken>> addFunc, CancellationToken cancellationToken)
+        /// <inheritdoc/>
+        public async Task<string> GetOrAddAccessTokenAsync(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, Func<ClientCredentialsAudienceConfiguration, ClientCredentialsAuthorityConfiguration, CancellationToken, Task<CachedAccessToken>> addFunc, CancellationToken cancellationToken)
         {
             var key = new AudienceRef { Audience = audience.Audience, Authority = authority.Authority.ToString() };
 
@@ -77,6 +78,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
             return value.AccessToken;
         }
 
+        /// <inheritdoc/>
         public void Invalidate(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, string accessToken)
         {
             var key = new AudienceRef { Audience = audience.Audience, Authority = authority.Authority.ToString() };

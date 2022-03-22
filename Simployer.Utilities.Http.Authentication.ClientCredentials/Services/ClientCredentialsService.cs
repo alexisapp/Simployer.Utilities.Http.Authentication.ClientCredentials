@@ -12,6 +12,10 @@ using System.Threading.Tasks;
 
 namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
 {
+    /// <summary>
+    /// A service for performing client credentials authentication
+    /// </summary>
+    /// <seealso cref="IClientCredentialsService" />
     public class ClientCredentialsService : IClientCredentialsService
     {
         private readonly IAccessTokenCache accessTokenCache;
@@ -19,6 +23,22 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
         private readonly HttpClient httpClient;
         private readonly ClientCredentialsAuthorityConfiguration[] configurations;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ClientCredentialsService"/> class.
+        /// </summary>
+        /// <param name="accessTokenCache">The access token cache.</param>
+        /// <param name="accessTokenValidationService">The access token validation service.</param>
+        /// <param name="httpClient">The HTTP client used for sending token requests.</param>
+        /// <param name="configurations">All configured authorities.</param>
+        /// <exception cref="System.ArgumentNullException">
+        /// accessTokenCache
+        /// or
+        /// accessTokenValidationService
+        /// or
+        /// httpClient
+        /// or
+        /// configurations
+        /// </exception>
         public ClientCredentialsService(IAccessTokenCache accessTokenCache, IAccessTokenValidationService accessTokenValidationService, HttpClient httpClient, IEnumerable<ClientCredentialsAuthorityConfiguration> configurations)
         {
             this.accessTokenCache = accessTokenCache ?? throw new ArgumentNullException(nameof(accessTokenCache));
@@ -106,20 +126,23 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
         }
 
 #if NET6_0_OR_GREATER
+        /// <inheritdoc/>
         public string AuthenticateForAudience(string audience, string authority)
         {
             var (authorityConfig, audienceConfig) = GetConfig(audience, authority);
-            return accessTokenCache.GetAccessToken(audienceConfig, authorityConfig, FetchAccessToken) ?? throw new ClientCredentialsExchangeException();
+            return accessTokenCache.GetOrAddAccessToken(audienceConfig, authorityConfig, FetchAccessToken) ?? throw new ClientCredentialsExchangeException();
         }
 #endif
 
+        /// <inheritdoc/>
         public async Task<string> AuthenticateForAudienceAsync(string audience, string authority, CancellationToken cancellationToken)
         {
             var (authorityConfig, audienceConfig) = GetConfig(audience, authority);
 
-            return await accessTokenCache.GetAccessTokenAsync(audienceConfig, authorityConfig, FetchAccessTokenAsync, cancellationToken) ?? throw new ClientCredentialsExchangeException();
+            return await accessTokenCache.GetOrAddAccessTokenAsync(audienceConfig, authorityConfig, FetchAccessTokenAsync, cancellationToken) ?? throw new ClientCredentialsExchangeException();
         }
 
+        /// <inheritdoc/>
         public void InvalidateAccessToken(string audience, string authority, string accessToken)
         {
             var (authorityConfig, audienceConfig) = GetConfig(audience, authority);

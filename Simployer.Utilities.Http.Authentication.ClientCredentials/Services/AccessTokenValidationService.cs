@@ -12,10 +12,17 @@ using System.Threading.Tasks;
 
 namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
 {
+    /// <summary>
+    /// A service for validating access tokens
+    /// </summary>
+    /// <seealso cref="IAccessTokenValidationService" />
     public class AccessTokenValidationService : IAccessTokenValidationService
     {
         private readonly HttpClient httpClient;
 
+        /// <summary>Initializes a new instance of the <see cref="AccessTokenValidationService" /> class.</summary>
+        /// <param name="httpClient">The HTTP client to use for retrieving Json Web Key Sets (JWKS).</param>
+        /// <exception cref="System.ArgumentNullException">httpClient</exception>
         public AccessTokenValidationService(HttpClient httpClient)
         {
             this.httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
@@ -23,7 +30,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
 
         private Uri GetJwksUri(ClientCredentialsAuthorityConfiguration authority)
         {
-            return new Uri(authority.Authority, ".well-known/jwks.json");
+            return new Uri(authority.Authority, authority.JwksPath);
         }
 
 #if NET6_0_OR_GREATER
@@ -122,17 +129,17 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
             return handler.ValidateToken(accessToken, tokenValidationParameters, out var validatedToken);
         }
 
+#if NET6_0_OR_GREATER
+        /// <inheritdoc/>
         public ClaimsPrincipal ValidateToken(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, string token)
         {
-#if NET6_0_OR_GREATER
             var useJwks = audience.TokenValidationParameters?.UseKeysFromAuthorityJwks == true || audience.TokenValidationParameters == null;
 
             return ValidateWithJwks(audience, authority, token, useJwks ? GetJwks(authority, audience) : null);
-#else
-            return ValidateTokenAsync(audience, authority, token).ConfigureAwait(false).GetAwaiter().GetResult();
-#endif
         }
+#endif
 
+        /// <inheritdoc/>
         public async Task<ClaimsPrincipal> ValidateTokenAsync(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, string token)
         {
             var useJwks = audience.TokenValidationParameters?.UseKeysFromAuthorityJwks == true || audience.TokenValidationParameters == null;
