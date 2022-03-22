@@ -25,15 +25,15 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore
       - name: Build solution
-        run: dotnet build Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release /p:Version=${{steps.gitversion.outputs.AssemblySemVer}} /p:AssemblyVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:InformationalVersion=${{steps.gitversion.outputs.InformationalVersion}} --no-restore
+        run: dotnet build src/Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release /p:Version=${{steps.gitversion.outputs.AssemblySemVer}} /p:AssemblyVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:InformationalVersion=${{steps.gitversion.outputs.InformationalVersion}} --no-restore
       - name: Create NuGet package
-        run: dotnet pack Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release -o:package /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:RepositoryType=git /p:RepositoryCommit=$GITHUB_SHA /p:RepositoryBranch=${GITHUB_REF#refs/heads/} /p:RepositoryUrl=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
+        run: dotnet pack src/Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release -o:package /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:RepositoryType=git /p:RepositoryCommit=$GITHUB_SHA /p:RepositoryBranch=${GITHUB_REF#refs/heads/} /p:RepositoryUrl=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
       - name: Archive build artifacts
         uses: actions/upload-artifact@v3
         with:
           name: NugetPackage
           path: package
-      - name: Publish NuGet package to nuget.org
-        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
-      - name: Publish NuGet Symbol package to nuget.org
-        run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      #- name: Publish NuGet package to nuget.org
+      #  run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
+      #- name: Publish NuGet Symbol package to nuget.org
+      #  run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
