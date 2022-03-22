@@ -1,0 +1,30 @@
+name: nuget-build-deploy
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+          versionSpec: '5.x'
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Determine version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+        with:
+          useConfigFile: true
+          configFilePath: ./.github/gitversion.yml
+      - name: Restore dependencies
+        run: dotnet restore
+      - name: Build solution
+        run: dotnet build Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release /p:Version=${{steps.gitversion.outputs.AssemblySemVer}} /p:AssemblyVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:InformationalVersion=${{steps.gitversion.outputs.InformationalVersion}} --no-restore
+      - name: Create NuGet package
+        run: dotnet pack Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release -o:package /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}}
