@@ -33,7 +33,7 @@ jobs:
         with:
           name: NugetPackage
           path: package
-      # - name: Publish NuGet package to nuget.org
-      #   run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}}
-      # - name: Publish NuGet Symbol package to nuget.org
-      #   run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}}
+      - name: Publish NuGet package to nuget.org
+        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}}
+      - name: Publish NuGet Symbol package to nuget.org
+        run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}}
