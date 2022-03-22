@@ -38,6 +38,4 @@ jobs:
       #- name: Publish NuGet Symbol package to nuget.org
       #  run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
       - name: Build documentation
-        uses: FredrikAleksander/docfx-action@master
-        with:
-          args: docs/docfx.json
+        uses: nikeee/docfx-action@master
