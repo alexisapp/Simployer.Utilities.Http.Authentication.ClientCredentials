@@ -5,6 +5,8 @@ Simployer.Utilities.Http.Authentication.ClientCredentials
 
 [View Documentation](https://simployer.github.io/Simployer.Utilities.Http.Authentication.ClientCredentials)
 
+[View API Reference](https://simployer.github.io/Simployer.Utilities.Http.Authentication.ClientCredentials/api)
+
 Quickstart
 ---------------------
 ```csharp
