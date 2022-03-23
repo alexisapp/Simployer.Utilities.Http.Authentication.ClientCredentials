@@ -357,3 +357,4 @@ MigrationBackup/
 /**/obj/
 _site
 _site_pdf
+/_exported_templates/**/*
