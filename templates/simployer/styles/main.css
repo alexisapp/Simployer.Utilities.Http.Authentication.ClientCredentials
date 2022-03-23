@@ -316,6 +316,16 @@ article h4 {
 }
 
 
+/* CODE */
+
+code,
+kbd,
+pre,
+samp {
+    font-family: "Cascadia Code", Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+
 /* CODE HIGHLIGHT */
 
 pre {
