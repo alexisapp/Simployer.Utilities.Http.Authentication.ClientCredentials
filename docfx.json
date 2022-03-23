@@ -4,14 +4,16 @@
       "src": [
         {
           "files": [
-            "Simployer.Utilities.Http.Authentication.ClientCredentials/bin/Release/net6.0/Simployer.Utilities.Http.Authentication.ClientCredentials.dll"
-          ],
-          "src": "../src"
+            "src/**/*.csproj"
+          ]
         }
       ],
       "dest": "api",
       "disableGitFeatures": false,
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "netstandard2.0"
+      }
     }
   ],
   "build": {
@@ -51,6 +53,7 @@
     ],
     "dest": "_site", 
     "globalMetadata": {
+      "_enableSearch": true,
       "_gitUrlPattern": "github"
     },
     "globalMetadataFiles": [],
