@@ -9,6 +9,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
     /// <summary>
     /// Access token cache, that is thread-safe and supporting both sync and async retrieval of access tokens
     /// </summary>
+    /// <seealso cref="AccessTokenCache"/>
     public interface IAccessTokenCache
     {
         /// <summary>

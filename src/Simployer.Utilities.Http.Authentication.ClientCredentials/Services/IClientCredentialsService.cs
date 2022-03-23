@@ -6,6 +6,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
     /// <summary>
     /// A service for performing client credentials authentication
     /// </summary>
+    /// <seealso cref="ClientCredentialsService"/>
     public interface IClientCredentialsService
     {
         /// <summary>

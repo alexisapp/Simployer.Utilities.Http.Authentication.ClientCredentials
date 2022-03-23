@@ -8,6 +8,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
     /// <summary>
     /// A service for validating access tokens
     /// </summary>
+    /// <seealso cref="AccessTokenValidationService"/>
     public interface IAccessTokenValidationService
     {
 #if NET6_0_OR_GREATER
