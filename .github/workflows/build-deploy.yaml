@@ -11,7 +11,7 @@ jobs:
       - name: Install GitVersion
         uses: gittools/actions/gitversion/setup@v0.9.7
         with:
-          versionSpec: '5.x'
+          versionSpec: "5.x"
       - name: Check out code
         uses: actions/checkout@v2
         with:
@@ -33,10 +33,6 @@ jobs:
         with:
           name: NugetPackage
           path: package
-      - name: Publish NuGet package to nuget.org
-        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
-      - name: Publish NuGet Symbol package to nuget.org
-        run: dotnet nuget push ./package/*.snupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
       - name: Build documentation
         uses: nikeee/docfx-action@master
         with:
@@ -46,3 +42,5 @@ jobs:
         env:
           BUILD_DIR: _site
           GH_PAT: ${{ secrets.GH_PAT }}
+      - name: Publish NuGet package to nuget.org
+        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
