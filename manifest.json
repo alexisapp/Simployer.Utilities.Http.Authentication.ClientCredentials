@@ -1,0 +1,401 @@
+{
+  "homepages": [],
+  "source_base_path": "/github/workspace",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "8/VE4zuPhgkn6ZBYUKoJEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.HttpClientCredentialsExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.HttpClientCredentialsExtensions.html",
+          "hash": "ryG1VMlZopUsg4k8vLbPNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Microsoft.Extensions.DependencyInjection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Microsoft.Extensions.DependencyInjection.html",
+          "hash": "VLYnoRqZAifhP+fATd6Ixg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.ClientCredentialsExchangeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.ClientCredentialsExchangeException.html",
+          "hash": "o9VMCRrNuQX6oD7fMEZorQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.ClientCredentialsTokenValidationParameters.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.ClientCredentialsTokenValidationParameters.html",
+          "hash": "++e+7uEn3CJgenayn6XORw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.ClientCredentialsAudienceConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.ClientCredentialsAudienceConfiguration.html",
+          "hash": "00aVZFF4iNw3Cy54AdP7cA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.ClientCredentialsAuthorityConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.ClientCredentialsAuthorityConfiguration.html",
+          "hash": "DeSNG986NJzaGQCeSs3BaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Configuration.html",
+          "hash": "aE7Wmq68XPp0gifJov2xeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Handlers.ClientCredentialsAuthenticationHandler.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Handlers.ClientCredentialsAuthenticationHandler.html",
+          "hash": "2VyNE4Ywq8I1VWC9ifMs1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Handlers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Handlers.html",
+          "hash": "r8EWtyn1XPljPf3LnExuWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.AccessTokenResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.AccessTokenResponse.html",
+          "hash": "up8QdHg7IJQnXwykfxJEVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.CachedAccessToken.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.CachedAccessToken.html",
+          "hash": "O44owsdBwE58PTIX3YvVPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Internal.html",
+          "hash": "0Mvu2Ymk/tFDUeBQoUofHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.AccessTokenCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.AccessTokenCache.html",
+          "hash": "Vtc9YpFNcZvpqW33FHhG6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.AccessTokenValidationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.AccessTokenValidationService.html",
+          "hash": "cXRRawtjCT3XZy2OxJzcGA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.ClientCredentialsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.ClientCredentialsService.html",
+          "hash": "36An1pKuUuXicJ9IxqQlNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IAccessTokenCache.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IAccessTokenCache.html",
+          "hash": "04bTqjj6Mz1iKcZ85Ej4JQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IAccessTokenValidationService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IAccessTokenValidationService.html",
+          "hash": "GjCywr875mNx3H9ZV+5Zng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IClientCredentialsService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.IClientCredentialsService.html",
+          "hash": "m7WvJh8QxZpSyg/CDK2vGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.Services.html",
+          "hash": "HaHIBBsLq0GCgHyx5ru5qA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Simployer.Utilities.Http.Authentication.ClientCredentials.html",
+          "hash": "9Gry9PI1Tl5T3lB32ixiiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "Hd4SE6xmSuzXRpnZ0EwEJQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "B6Rj2BFnLP5sQRH3Q6vtXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "FalOPZi3so3wJwCXdXOo+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/quickstart.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/quickstart.html",
+          "hash": "9i2AcZPz5LOdXEJ2MFXMFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "FqB1OsmDhnsdgLK2gwFNnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "0jZ5MQ4fMvXRG5Z/M0AkVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "y2gsNRVRM/rjPaHLD0gLHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 20,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
