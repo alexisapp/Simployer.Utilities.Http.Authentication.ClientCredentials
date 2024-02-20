@@ -76,9 +76,9 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
                 return new CachedAccessToken { AccessToken = tokenResponse.AccessToken, Expires = expires };
             }
 
-            throw new ClientCredentialsExchangeException("Client credentials exchange failed");
+            throw new ClientCredentialsExchangeException($"Client credentials exchange failed, response status: {response.StatusCode} {response.ReasonPhrase}");
         }
-
+        
         private async Task<CachedAccessToken> FetchAccessTokenAsync(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, CancellationToken cancellationToken)
         {
             var request = CreateRequest(audience, authority);

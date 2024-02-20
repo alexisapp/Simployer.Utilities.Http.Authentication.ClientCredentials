@@ -73,6 +73,14 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Configuratio
         public string ClientSecret { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether to perform validation of the JWT signature
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> if JWT signature validation should be done; otherwise, <c>false</c>.
+        /// </value>
+        public bool PerformIssuerValidation { get; set; }
+
+        /// <summary>
         /// Gets the audience list of this authority.
         /// </summary>
         /// <value>
