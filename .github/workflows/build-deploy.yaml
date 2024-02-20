@@ -37,10 +37,10 @@ jobs:
         uses: nikeee/docfx-action@master
         with:
           args: docfx.json
+      - name: Publish NuGet package to nuget.org
+        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
       - name: Publish documentation to Github Pages
         uses: maxheld83/ghpages@master
         env:
           BUILD_DIR: _site
           GH_PAT: ${{ secrets.GH_PAT }}
-      - name: Publish NuGet package to nuget.org
-        run: dotnet nuget push ./package/*.nupkg -k ${{secrets.NUGET_API_KEY}} -s https://api.nuget.org/v3/index.json
