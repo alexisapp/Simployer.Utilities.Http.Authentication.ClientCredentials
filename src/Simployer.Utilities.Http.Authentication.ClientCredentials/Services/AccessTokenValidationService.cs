@@ -81,7 +81,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
         {
             var tokenValidationParametersOriginal = audience.TokenValidationParameters ?? new ClientCredentialsTokenValidationParameters
             {
-                ValidateIssuer = authority.PerformIssuerValidation,
+                ValidateIssuer = true,
                 ValidateAudience = true,
                 ValidateLifetime = true,
             };

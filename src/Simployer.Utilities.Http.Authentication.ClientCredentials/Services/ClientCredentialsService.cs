@@ -85,7 +85,10 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
             var response = await httpClient.SendAsync(request, cancellationToken);
             var responseString = await response.Content.ReadAsStringAsync();
             var accessToken = ProcessResponse(response, responseString);
-            await accessTokenValidationService.ValidateTokenAsync(audience, authority, accessToken.AccessToken);
+            if (authority.PerformValidation)
+            {
+                await accessTokenValidationService.ValidateTokenAsync(audience, authority, accessToken.AccessToken);
+            }
             return accessToken;
         }
 
@@ -99,7 +102,12 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
             using (var textReader = new StreamReader(contentStream))
             {
                 var accessToken = ProcessResponse(response, textReader.ReadToEnd());
-                accessTokenValidationService.ValidateTokenAsync(audience, authority, accessToken.AccessToken);
+                
+                if (authority.PerformValidation)
+                {
+                    accessTokenValidationService.ValidateTokenAsync(audience, authority, accessToken.AccessToken);
+                }
+
                 return accessToken;
             }
         }

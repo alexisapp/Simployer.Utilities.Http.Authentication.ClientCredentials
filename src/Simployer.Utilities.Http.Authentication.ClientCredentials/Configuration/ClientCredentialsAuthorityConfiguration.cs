@@ -78,7 +78,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Configuratio
         /// <value>
         ///   <c>true</c> if JWT signature validation should be done; otherwise, <c>false</c>.
         /// </value>
-        public bool PerformIssuerValidation { get; set; }
+        public bool PerformValidation { get; set; }
 
         /// <summary>
         /// Gets the audience list of this authority.
