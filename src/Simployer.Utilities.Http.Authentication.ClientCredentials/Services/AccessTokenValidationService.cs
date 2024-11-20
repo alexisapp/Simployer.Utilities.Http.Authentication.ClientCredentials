@@ -115,12 +115,12 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
                 tokenValidationParameters.IssuerSigningKeyResolver = GetIssuerSigningKey;
             }
 
-            if (tokenValidationParameters.ValidIssuer == null && tokenValidationParameters.ValidIssuers.IsNullOrEmpty())
+            if (tokenValidationParameters.ValidIssuer == null && (tokenValidationParameters.ValidIssuers == null || !tokenValidationParameters.ValidIssuers.Any()))
             {
                 tokenValidationParameters.ValidIssuer = authority.Authority.ToString();
             }
 
-            if (tokenValidationParameters.ValidAudience == null && tokenValidationParameters.ValidAudiences.IsNullOrEmpty())
+            if (tokenValidationParameters.ValidAudience == null && (tokenValidationParameters.ValidAudiences == null || !tokenValidationParameters.ValidAudiences.Any()))
             {
                 tokenValidationParameters.ValidAudience = audience.Audience;
             }
