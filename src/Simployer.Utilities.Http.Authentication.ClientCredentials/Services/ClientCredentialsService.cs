@@ -51,23 +51,40 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
         {
             var uri = new Uri(authority.Authority, authority.TokenPath);
             var request = new HttpRequestMessage(HttpMethod.Post, uri);
-            var requestJson = JsonSerializer.Serialize(new
+
+            if (authority.UseJson)
             {
-                grant_type = "client_credentials",
-                audience = audience.Audience,
-                client_id = audience.ClientId ?? authority.ClientId ?? throw new ClientCredentialsExchangeException($"Audience '{audience.Audience}' for authority '{authority.Authority}' has no Client ID"),
-                client_secret = audience.ClientSecret ?? authority.ClientSecret ?? throw new ClientCredentialsExchangeException($"Audience '{audience.Audience}' for authority '{authority.Authority}' has no Client Secret"),
-            });
-            request.Content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+                var requestJson = JsonSerializer.Serialize(new
+                {
+                    grant_type = "client_credentials",
+                    audience = audience.Audience,
+                    client_id = audience.ClientId ?? authority.ClientId ?? throw new ClientCredentialsExchangeException($"Audience '{audience.Audience}' for authority '{authority.Authority}' has no Client ID"),
+                    client_secret = audience.ClientSecret ?? authority.ClientSecret ?? throw new ClientCredentialsExchangeException($"Audience '{audience.Audience}' for authority '{authority.Authority}' has no Client Secret"),
+                });
+                request.Content = new StringContent(requestJson, Encoding.UTF8, "application/json");
+            }
+            else
+            {
+                var formData = new FormUrlEncodedContent(new Dictionary<string, string>
+                {
+                    { "grant_type", "client_credentials" },
+                    { "audience", audience.Audience },
+                    { "client_id", audience.ClientId },
+                    { "client_secret", audience.ClientSecret },
+                });
+
+                request.Content = formData;
+            }
+
             return request;
         }
 
         private CachedAccessToken ProcessResponse(HttpResponseMessage response, string responseString)
         {
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var tokenResponse = JsonSerializer.Deserialize<AccessTokenResponse>(responseString);
-                if(tokenResponse == null || tokenResponse.AccessToken == null || !tokenResponse.TokenType.Equals("bearer", StringComparison.InvariantCultureIgnoreCase))
+                if (tokenResponse == null || tokenResponse.AccessToken == null || !tokenResponse.TokenType.Equals("bearer", StringComparison.InvariantCultureIgnoreCase))
                 {
                     throw new ClientCredentialsExchangeException("Invalid access token response");
                 }
@@ -78,7 +95,7 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Services
 
             throw new ClientCredentialsExchangeException($"Client credentials exchange failed, response status: {response.StatusCode} {response.ReasonPhrase}");
         }
-        
+
         private async Task<CachedAccessToken> FetchAccessTokenAsync(ClientCredentialsAudienceConfiguration audience, ClientCredentialsAuthorityConfiguration authority, CancellationToken cancellationToken)
         {
             var request = CreateRequest(audience, authority);

@@ -73,6 +73,11 @@ namespace Simployer.Utilities.Http.Authentication.ClientCredentials.Configuratio
         public string ClientSecret { get; set; }
 
         /// <summary>
+        /// Wether or not to use JSON serialized payloads
+        /// </summary>
+        public bool UseJson { get; set; } = true;
+
+        /// <summary>
         /// Gets or sets a value indicating whether to perform validation of the JWT signature
         /// </summary>
         /// <value>
