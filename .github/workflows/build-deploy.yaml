@@ -29,7 +29,7 @@ jobs:
       - name: Create NuGet package
         run: dotnet pack src/Simployer.Utilities.Http.Authentication.ClientCredentials.sln --configuration Release -o:package /p:PackageVersion=${{steps.gitversion.outputs.AssemblySemVer}} /p:RepositoryType=git /p:RepositoryCommit=$GITHUB_SHA /p:RepositoryBranch=${GITHUB_REF#refs/heads/} /p:RepositoryUrl=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}
       - name: Archive build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: NugetPackage
           path: package
